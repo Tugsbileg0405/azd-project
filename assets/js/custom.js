@@ -1,4 +1,10 @@
 $(document).ready(function() {
+
+    $('.navbar-default-2  .nav li a').on('click', function() {
+        $(this).parent().parent().find('.active').removeClass('active');
+        $(this).addClass('active');
+    });
+
     var data_start_type = $('#langugeValue').attr('data-start-type');
     var $data_type_elem = $('[data-type=' + data_start_type + ']');
     $('.chosen-language').text($data_type_elem.text());
@@ -68,33 +74,29 @@ $(document).ready(function() {
         ]
     });
 
+    $('#lightgallery').lightGallery();
 
-    $('.imageGallery').lightSlider({
-        item: 2,
-        loop: false,
-        slideMove: 2,
-        easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
-        speed: 600,
-        responsive: [{
-                breakpoint: 992,
-                settings: {
-                    item: 3,
-                    slideMove: 1,
-                    slideMargin: 6,
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    item: 2,
-                    slideMove: 1
-                }
-            }
-        ],
-        onSliderLoad: function(el) {
-            el.lightGallery({
-                selector: '.imageGallery .lslide'
-            });
+    $('#lightgallery1').lightGallery();
+
+    $('#aimag').change(function() {
+        if ($(this).val() == 'ub') {
+            $(".location-content .rule-header").html('УЛААНБААТАР АЙМАГ ДАХЬ АРДЧИЛСАН ЗАЛУУЧУУДЫН ХОЛБОО');
+        } else if ($(this).val() == 'ar') {
+            $(".location-content .rule-header").html('АРХАНГАЙ АЙМАГ ДАХЬ АРДЧИЛСАН ЗАЛУУЧУУДЫН ХОЛБОО');
+        } else if ($(this).val() == 'da') {
+            $(".location-content .rule-header").html('ДАРХАН АЙМАГ ДАХЬ АРДЧИЛСАН ЗАЛУУЧУУДЫН ХОЛБОО');
+        } else if ($(this).val() == 'er') {
+            $(".location-content .rule-header").html('ЭРДЭНЭТ АЙМАГ ДАХЬ АРДЧИЛСАН ЗАЛУУЧУУДЫН ХОЛБОО');
         }
     });
+
+    $("select#aimag").val("ub").change();
+
+    $('#newsSidebar a').click(function(e) {
+        e.preventDefault()
+        $that = $(this);
+        $that.parent().find('a').removeClass('active');
+        $that.addClass('active');
+    });
+
 });
