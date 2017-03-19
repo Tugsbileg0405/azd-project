@@ -2119,7 +2119,7 @@ fieldset[disabled] .form-control {
     border-color: transparent !important;
 }
 
-.navbar-default-2.navbar-transparent .navbar-nav>li>a.active {
+.navbar-default-2.navbar-transparent .navbar-nav>li>a:not(.btn-blue).active {
     border-bottom-color: #e30613 !important;
 }
 
